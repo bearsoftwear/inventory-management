@@ -21,7 +21,7 @@ return new class extends Migration
             $table->softDeletes(); // hidden timestamp for soft deletes
         });
 
-        Schema::create('purchase_product', function (Blueprint $table) {
+        Schema::create('product_purchase', function (Blueprint $table) {
             $table->id();
             $table->foreignId('purchase_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();

@@ -16,3 +16,4 @@ require __DIR__ . '/auth.php';
 
 // what do you think, about purchase and sales?
 // make pivot table for purchase and sales
+// todo complite sales database structure

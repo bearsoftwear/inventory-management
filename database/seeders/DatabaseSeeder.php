@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Purchase;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
@@ -32,11 +33,18 @@ class DatabaseSeeder extends Seeder
 
         $categories = Category::factory(10)->create();
         $products = Product::factory(50)->create();
-        $suppliers = Supplier::factory(10)->create(); // call SupplierFactory
-
         $products->each(function ($product) use ($categories) {
             $product->categories()->attach(
                 $categories->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        });
+
+        $suppliers = Supplier::factory(10)->create(); // call SupplierFactory
+        $purchases = Purchase::factory(10)->create();
+        $purchases->each(function ($purchase) use ($products) {
+            $purchase->products()->attach(
+                $products->random(rand(5, 15))->pluck('id')->toArray(),
+                ['quantity' => rand(1, 15), 'cost_price' => rand(100, 1000)]
             );
         });
     }
