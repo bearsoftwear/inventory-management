@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivot\ProductSales;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,11 +13,25 @@ class Sales extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'product_id',
-        'customer',
-        'quantity',
-        'sell_price',
+        'customer_id',
+        'invoice_number',
+        'sale_date',
+        'total_amount',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)
+                    ->using(ProductSales::class)
+                    ->withPivot('quantity', 'sale_price')
+                    ->withTimestamps()
+                    ->withTrashed(); // if you want to show the deleted products
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 
     /*
     Sales Record

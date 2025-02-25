@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier; // add Supplier model
+use App\Models\Sales; // add Sales model
+use App\Models\Customer; // add Customer model
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +47,15 @@ class DatabaseSeeder extends Seeder
             $purchase->products()->attach(
                 $products->random(rand(5, 15))->pluck('id')->toArray(),
                 ['quantity' => rand(1, 15), 'cost_price' => rand(100, 1000)]
+            );
+        });
+
+        $customers = Customer::factory(10)->create(); // call CustomerFactory
+        $sales = Sales::factory(10)->create();
+        $sales->each(function ($sale) use ($products) {
+            $sale->products()->attach(
+                $products->random(rand(5, 15))->pluck('id')->toArray(),
+                ['quantity' => rand(1, 15), 'sale_price' => rand(100, 1000)]
             );
         });
     }

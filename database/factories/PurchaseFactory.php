@@ -19,7 +19,7 @@ class PurchaseFactory extends Factory
     {
         return [
             'supplier_id' => Supplier::inRandomOrder()->first()->id,
-            'invoice_number' => $this->faker->unique()->numerify('INV-' . date('Ym') . '-#####'),
+            'invoice_number' => $this->faker->unique()->numerify('INVP-' . date('Ym') . '-#####'),
             'purchase_date' => $this->faker->date(),
             'total_amount' => $this->faker->randomFloat(2, 100, 10000),
         ];

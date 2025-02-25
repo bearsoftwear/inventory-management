@@ -14,6 +14,6 @@ Route::view('profile', 'profile')
 
 require __DIR__ . '/auth.php';
 
-// what do you think, about purchase and sales?
-// make pivot table for purchase and sales
-// todo complite sales database structure
+// https://chatgpt.com/c/67b00cb2-fd48-800a-a98d-fa6142d44677
+// DONE database
+// todo roles

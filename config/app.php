@@ -125,6 +125,7 @@ return [
 
     // Thinker configuration
     'Category' => App\Models\Category::class,
+    'Customer' => App\Models\Customer::class,
     'Product' => App\Models\Product::class,
     'Purchase' => App\Models\Purchase::class,
     'Sales' => App\Models\Sales::class,

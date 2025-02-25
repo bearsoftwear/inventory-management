@@ -28,6 +28,11 @@ class Purchase extends Model
                     ->withTrashed(); // if you want to show the deleted products
     }
 
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
     /*
     Purchases Record
     Purpose:
