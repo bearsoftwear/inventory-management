@@ -24,14 +24,40 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        $this->call(SpatieSeeder::class);
 
-        User::factory()->create([
+        $admin = User::factory()->create([
             'name' => 'Bear Softwear',
             'email' => 'bearsoftwear@gmail.com',
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ]);
+        echo "add admin ";
+        echo $admin->assignRole('admin');
+        echo PHP_EOL;
+
+        $admin = User::factory()->create([
+            'name' => 'Manager',
+            'email' => 'manager@gmail.com',
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+            'remember_token' => Str::random(10),
+        ]);
+        echo "add manager ";
+        echo $admin->assignRole('manager');
+        echo PHP_EOL;
+
+        $admin = User::factory()->create([
+            'name' => 'Staff',
+            'email' => 'staff@gmail.com',
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+            'remember_token' => Str::random(10),
+        ]);
+        echo "add staff ";
+        echo $admin->assignRole('staff');
+        echo PHP_EOL;
 
         $categories = Category::factory(10)->create();
         $products = Product::factory(50)->create();

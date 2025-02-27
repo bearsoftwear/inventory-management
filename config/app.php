@@ -131,4 +131,7 @@ return [
     'Sales' => App\Models\Sales::class,
     'Supplier' => App\Models\Supplier::class,
     'User' => App\Models\User::class,
+
+    'Role' => Spatie\Permission\Models\Role::class,
+    'Permission' => Spatie\Permission\Models\Permission::class,
 ];

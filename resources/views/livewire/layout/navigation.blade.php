@@ -28,6 +28,43 @@ $logout = function (Logout $logout) {
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')" wire:navigate.hover>
+                        {{ __('Categories') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('customers')" :active="request()->routeIs('customers')" wire:navigate.hover>
+                        {{ __('Customers') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')" wire:navigate.hover>
+                        {{ __('Products') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('purchases')" :active="request()->routeIs('purchases')" wire:navigate.hover>
+                        {{ __('Purchases') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('sales')" :active="request()->routeIs('sales')" wire:navigate.hover>
+                        {{ __('Sales') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('suppliers')" :active="request()->routeIs('suppliers')" wire:navigate.hover>
+                        {{ __('Suppliers') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')" wire:navigate.hover>
+                        {{ __('Users') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
