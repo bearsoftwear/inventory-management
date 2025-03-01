@@ -29,5 +29,5 @@ require __DIR__ . '/auth.php';
 // DONE database
 // DONE spatie setting
 // DONE Category model crud
-// TODO spatie experiment, if staff access categories, they cant
-// TODO customer model crud
+// DONE customer model crud
+// todo learn about livewire volt
